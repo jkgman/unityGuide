@@ -3,22 +3,94 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ballBehavior : MonoBehaviour {
-	private float _timer = 2;
+	private float _timer = 1;
 	private MeshRenderer _renderer;
+	[SerializeField] float distance;
+	[SerializeField] float spawnDist;
+	[SerializeField] Camera _camera;
+	[SerializeField] Transform _startTransform;
+	[SerializeField] Transform _endTransform;
+	private bool _isShown;
+	private bool _hasChosenDirection;
+	private bool _isLeft;
+
+
 	// Use this for initialization
 	void Start () {
 		int count;
 		_renderer = GetComponent<MeshRenderer> ();
-		_renderer.enabled = false;
+		Hide ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		_timer -= Time.deltaTime;
 
-		if(_timer < 0){
-			_renderer.enabled = true;
+		if(_timer < 0 && !_isShown){
+			Show ();
 		}
 
+
+		if (_isShown) {
+			MoveTowardsTarget ();
+
+			float dist = Mathf.Abs(Vector3.Distance (transform.position,_camera.transform.position));
+
+			if (dist < distance) {
+				transform.position = (transform.position + (transform.position - _camera.transform.position).normalized * (distance-dist));
+				//Debug.Log (transform.position);
+
+				if (!_hasChosenDirection) {
+
+					if (transform.position.x < _endTransform.position.x) {
+						_isLeft = true;
+					} else {
+						_isLeft = false;
+					}
+					_hasChosenDirection = true;
+				}
+
+				if (_isLeft) {
+					transform.position = new Vector3 (transform.position.x + 2 * Time.deltaTime, transform.position.y, transform.position.z);
+
+				} else {
+					transform.position = new Vector3 (transform.position.x - 2 * Time.deltaTime, transform.position.y, transform.position.z);
+
+				}
+
+
+			} 
+
+			if (distance - dist > 1) {
+				_hasChosenDirection=false;
+			}
+
+
+
+			Vector3 viewportPos = Camera.main.WorldToViewportPoint (transform.position);
+			viewportPos.x = Mathf.Clamp (viewportPos.x,0.3f,0.8f);
+			viewportPos.y = Mathf.Clamp (viewportPos.y,0.3f,0.6f);
+			transform.position = Camera.main.ViewportToWorldPoint (viewportPos);
+
+
+
+		}
+	}
+
+
+	void Show(){
+		transform.position = _camera.transform.position + _camera.transform.forward * spawnDist;
+		Debug.Log (_camera.transform.forward);
+		_renderer.enabled = true;
+		_isShown = true;
+		MoveTowardsTarget ();
+	}
+
+	void Hide(){
+		_renderer.enabled = false;
+		_isShown = false;
+	}
+	void MoveTowardsTarget(){
+		transform.position = Vector3.MoveTowards (transform.position,_endTransform.position,Time.deltaTime);
 	}
 }
