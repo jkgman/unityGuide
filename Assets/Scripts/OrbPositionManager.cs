@@ -17,10 +17,10 @@ public class OrbPositionManager : MonoBehaviour
     {
         _ballBehavior = GetComponent<ballBehavior>();
     }
-    
+
     // Update is called once per frame
     void Update () {
-        
+
     }
 
 
@@ -38,8 +38,14 @@ public class OrbPositionManager : MonoBehaviour
 
         _buttons[_currentTargetIndex].EnableCollider();
 
-        _currentTargetIndex++;
-
+        int prev = _currentTargetIndex;
+        _currentTargetIndex = Random.Range(0, _buttons.Count);
+        if (_currentTargetIndex==prev) {
+          _currentTargetIndex++;
+          if (_currentTargetIndex >= _buttons.Count) {
+            _currentTargetIndex -= 2;
+          }
+        }
         _ballBehavior.SetNewTarget(result);
 
 

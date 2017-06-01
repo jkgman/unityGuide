@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LaserScript : MonoBehaviour {
-	private SteamVR_TrackedObject _trackedObj;
+	public SteamVR_TrackedObject _trackedObj;
 
 	public GameObject laserPrefab;
 
@@ -12,8 +12,8 @@ public class LaserScript : MonoBehaviour {
 	private Transform _laserTransform;
 
 	public Vector3 _hitPoint;
-
-	private SteamVR_Controller.Device Controller{
+	[SerializeField] ballBehavior _ballbehavior;
+	public SteamVR_Controller.Device Controller{
 		get{
 			return SteamVR_Controller.Input ((int)_trackedObj.index);
 		}
@@ -67,7 +67,7 @@ public class LaserScript : MonoBehaviour {
 
 				foreach(RaycastHit hit in hits) {
 					if (hit.transform.CompareTag ("Button")) {
-					
+
 						hit.transform.GetComponent<Clickable> ().Activate();
 					}
 
@@ -84,5 +84,8 @@ public class LaserScript : MonoBehaviour {
 		} else {
 			_laser.SetActive (false);
 		}
+		if (Controller.GetPress (SteamVR_Controller.ButtonMask.Touchpad)) {
+     _ballbehavior.shownew();
+    }
 	}
 }

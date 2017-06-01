@@ -20,7 +20,7 @@ public class Clickable : MonoBehaviour
         _orbPositionManager = FindObjectOfType<OrbPositionManager>();
         _collider = GetComponent<Collider>();
         _collider.enabled = false;
-
+		_rotateObject = GetComponent<RotateObject>();
         _glowParticle = GetComponentInChildren<ParticleSystem>();
         _glowParticle.Stop();
     }
