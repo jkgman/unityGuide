@@ -11,7 +11,7 @@ public class LaserScript : MonoBehaviour {
 	private GameObject isTriggerPressed;
 	private Transform _laserTransform;
 
-	private Vector3 _hitPoint;
+	public Vector3 _hitPoint;
 
 	private SteamVR_Controller.Device Controller{
 		get{
@@ -53,18 +53,33 @@ public class LaserScript : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (Controller.GetPress (SteamVR_Controller.ButtonMask.Trigger)) {
 
-			RaycastHit hit;
-			if(Physics.Raycast (_trackedObj.transform.position, transform.forward, out hit, 100)) {
+			RaycastHit[] hits;
+
+			hits = Physics.RaycastAll (transform.position, transform.forward, 100);
+
+
+			if (hits.Length > 0) {
+
+
+
+				foreach(RaycastHit hit in hits) {
+					if (hit.transform.CompareTag ("Button")) {
+					
+						hit.transform.GetComponent<Clickable> ().Activate();
+					}
+
+				}
+
 				//hitpoint laser is causing the flicker
-				_hitPoint = hit.point;
-				ShowLaser (hit);
+				_hitPoint = hits [hits.Length - 1].point;
+				ShowLaser (_hitPoint);
 				//ShowLaser (_trackedObj.transform.position + 100 * transform.forward);
 			} else {
 
-				ShowLaser (_trackedObj.transform.position + 100 * transform.forward);
+				//ShowLaser (_trackedObj.transform.position + 100 * transform.forward);
 			}
 
 		} else {
