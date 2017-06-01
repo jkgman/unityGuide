@@ -11,6 +11,8 @@ public class Clickable : MonoBehaviour
 
     private ParticleSystem _glowParticle;
 
+    private RotateObject _rotateObject;
+
     // Use this for initialization
     void Awake ()
     {
@@ -40,5 +42,16 @@ public class Clickable : MonoBehaviour
         _orbPositionManager.GoToNextTarget();
         _collider.enabled = false;
         _glowParticle.Stop();
+        StartCoroutine(Rotate());
+
+    }
+
+    private IEnumerator Rotate()
+    {
+        _rotateObject.enabled = true;
+
+        yield return new WaitForSeconds(2);
+
+        _rotateObject.enabled = false;
     }
 }
