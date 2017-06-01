@@ -20,17 +20,28 @@ public class ballBehavior : MonoBehaviour {
   private bool _isLeft;
   private MeshRenderer _meshRenderer;
   private OrbPositionManager _positionManager;
-  //private ScaleLerper _scaleLerper;
+
+	private bool first = true;
+
+  private ParticleSystem _particleSystem;
+
+	//private ScaleLerper _scaleLerper;
 
   // Use this for initialization
+
+
   void Start ()
   {
+		
     _meshRenderer = GetComponent<MeshRenderer>();
 
     //_scaleLerper = GetComponent<ScaleLerper> ();
     _positionManager = FindObjectOfType<OrbPositionManager>();
     int count;
     _renderer = GetComponent<MeshRenderer> ();
+		_particleSystem = GetComponentInChildren<ParticleSystem> ();
+		_particleSystem.Clear();
+		_particleSystem.Stop();
     Hide ();
   }
 
@@ -137,14 +148,25 @@ public class ballBehavior : MonoBehaviour {
   {
 		_endTransform = target;
     _hasChosenDirection = false;
-    StartCoroutine(disapear());
+		if (!first) {
+			StartCoroutine (disapear ());
+		} else {
+			_particleSystem.Play();
+
+			first = false;
+		}
   }
+
   private IEnumerator disapear()
   {
+		_particleSystem.Clear();
+		_particleSystem.Stop();
       _meshRenderer.enabled = false;
+	
 
       yield return new WaitForSeconds(5);
       shownew();
+		_particleSystem.Play();
       _meshRenderer.enabled = true;
 
   }
