@@ -36,6 +36,8 @@ public class OrbPositionManager : MonoBehaviour
 
         Transform result = _buttons[_currentTargetIndex].transform;
 
+        _buttons[_currentTargetIndex].EnableCollider();
+
         _currentTargetIndex++;
 
         _ballBehavior.SetNewTarget(result);
