@@ -9,15 +9,20 @@ public class ballBehavior : MonoBehaviour {
     [SerializeField] float spawnDist;
     [SerializeField] Camera _camera;
     [SerializeField] Transform _startTransform;
+    [SerializeField] float _lerpMin;
+    [SerializeField] float _lerpMax;
+    [SerializeField] float _ballSpeed;
     Transform _endTransform;
     private bool _isShown;
     private bool _hasChosenDirection;
     private bool _isLeft;
     private OrbPositionManager _positionManager;
+	//private ScaleLerper _scaleLerper;
 
     // Use this for initialization
     void Start ()
     {
+		//_scaleLerper = GetComponent<ScaleLerper> ();
         _positionManager = FindObjectOfType<OrbPositionManager>();
         int count;
         _renderer = GetComponent<MeshRenderer> ();
@@ -73,10 +78,22 @@ public class ballBehavior : MonoBehaviour {
             Vector3 viewportPos = Camera.main.WorldToViewportPoint (transform.position);
             viewportPos.x = Mathf.Clamp (viewportPos.x,0.25f,0.75f);
             viewportPos.y = Mathf.Clamp (viewportPos.y,0.25f,0.75f);
-            transform.position = Camera.main.ViewportToWorldPoint (viewportPos);
+            float radiusinview;
+            radiusinview = Mathf.Sqrt(Mathf.Abs(viewportPos.x-.5f) *Mathf.Abs(viewportPos.x-.5f) + Mathf.Abs(viewportPos.y-.5f)*Mathf.Abs(viewportPos.y-.5f));
+			/*
+			if (viewportPos.x > 0.6f || viewportPos.y < 0.4f) {
+				_scaleLerper.enabled = true;
 
+			} else {
+			*/
+				//_scaleLerper.enabled = false;
+				transform.localScale = new Vector3 (Mathf.Lerp(_lerpMin, _lerpMax, radiusinview), Mathf.Lerp(_lerpMin, _lerpMax, radiusinview), Mathf.Lerp (_lerpMin, _lerpMax, radiusinview));
+				transform.position = Camera.main.ViewportToWorldPoint (viewportPos);
+			//}
 
-
+			if (transform.position.y < -0.44f) {
+				transform.position = new Vector3 (transform.position.x, -0.44f, transform.position.z);
+			}
         }
     }
 
@@ -94,12 +111,12 @@ public class ballBehavior : MonoBehaviour {
         _isShown = false;
     }
     void MoveTowardsTarget(){
-        transform.position = Vector3.MoveTowards (transform.position,_endTransform.position,Time.deltaTime * 5);
+        transform.position = Vector3.MoveTowards (transform.position,_endTransform.position,Time.deltaTime * _ballSpeed);
 
-        if (Mathf.Abs(Vector3.Distance(_endTransform.position,transform.position)) < 1)
-        {
-            _positionManager.GoToNextTarget();
-        }
+        //if (Mathf.Abs(Vector3.Distance(_endTransform.position,transform.position)) < 1)
+        //{
+          //  _positionManager.GoToNextTarget();
+        //}
     }
 
     public void SetNewTarget(Transform target)

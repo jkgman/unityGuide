@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: ef0c97267a9dd9d4dbf79ab638e43be0
+timeCreated: 1496324699
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Background stars
+    100002: Bone
+    100004: Bone 1
+    100006: Bone 2
+    100008: Bone 3
+    100010: Bone.001
+    100012: Bone.001 1
+    100014: Bone.001 2
+    100016: Bone.001 3
+    100018: Bone.001_end
+    100020: Bone.001_end 1
+    100022: Bone.001_end 2
+    100024: Bone.001_end 3
+    100026: Bone.002
+    100028: Bone.002 1
+    100030: Bone.002 2
+    100032: Bone.002 3
+    100034: Bone.002_end
+    100036: Bone.002_end 1
+    100038: Bone.002_end 2
+    100040: Bone.002_end 3
+    100042: Bone.003
+    100044: Bone.003 1
+    100046: Bone.003 2
+    100048: Bone.003_end
+    100050: Bone.003_end 1
+    100052: Bone.003_end 2
+    100054: Bone.004
+    100056: Bone.004 1
+    100058: Bone.004 2
+    100060: Bone.004_end
+    100062: Bone.004_end 1
+    100064: Bone.005
+    100066: Bone.005 1
+    100068: Bone.005_end
+    100070: Bone.005_end 1
+    100072: Bone.006
+    100074: Bone.006_end
+    100076: Bone.007
+    100078: Bone.007_end
+    100080: Bone.008
+    100082: Bone.008_end
+    100084: Bone_end
+    100086: Bone_end 1
+    100088: Bone_end 2
+    100090: Bone_end 3
+    100092: Cancer
+    100094: Cancerbones
+    100096: Cancerstars
+    100098: Cepheus
+    100100: Cepheusbones
+    100102: Cepheusstars
+    100104: Lupus
+    100106: Lupusbones
+    100108: Lupusstars
+    100110: Main stars
+    100112: //RootNode
+    100114: Pisces
+    100116: Piscesbones
+    100118: Piscesstars
+    100120: Plane
+    100122: Plane_MeshPart0
+    100124: Plane_MeshPart1
+    100126: Starmap
+    100128: Starmap_MeshPart0
+    100130: Starmap_MeshPart1
+    100132: Starmap_MeshPart2
+    400000: Background stars
+    400002: Bone
+    400004: Bone 1
+    400006: Bone 2
+    400008: Bone 3
+    400010: Bone.001
+    400012: Bone.001 1
+    400014: Bone.001 2
+    400016: Bone.001 3
+    400018: Bone.001_end
+    400020: Bone.001_end 1
+    400022: Bone.001_end 2
+    400024: Bone.001_end 3
+    400026: Bone.002
+    400028: Bone.002 1
+    400030: Bone.002 2
+    400032: Bone.002 3
+    400034: Bone.002_end
+    400036: Bone.002_end 1
+    400038: Bone.002_end 2
+    400040: Bone.002_end 3
+    400042: Bone.003
+    400044: Bone.003 1
+    400046: Bone.003 2
+    400048: Bone.003_end
+    400050: Bone.003_end 1
+    400052: Bone.003_end 2
+    400054: Bone.004
+    400056: Bone.004 1
+    400058: Bone.004 2
+    400060: Bone.004_end
+    400062: Bone.004_end 1
+    400064: Bone.005
+    400066: Bone.005 1
+    400068: Bone.005_end
+    400070: Bone.005_end 1
+    400072: Bone.006
+    400074: Bone.006_end
+    400076: Bone.007
+    400078: Bone.007_end
+    400080: Bone.008
+    400082: Bone.008_end
+    400084: Bone_end
+    400086: Bone_end 1
+    400088: Bone_end 2
+    400090: Bone_end 3
+    400092: Cancer
+    400094: Cancerbones
+    400096: Cancerstars
+    400098: Cepheus
+    400100: Cepheusbones
+    400102: Cepheusstars
+    400104: Lupus
+    400106: Lupusbones
+    400108: Lupusstars
+    400110: Main stars
+    400112: //RootNode
+    400114: Pisces
+    400116: Piscesbones
+    400118: Piscesstars
+    400120: Plane
+    400122: Plane_MeshPart0
+    400124: Plane_MeshPart1
+    400126: Starmap
+    400128: Starmap_MeshPart0
+    400130: Starmap_MeshPart1
+    400132: Starmap_MeshPart2
+    2300000: Background stars
+    2300002: Cancerstars
+    2300004: Cepheusstars
+    2300006: Lupusstars
+    2300008: Main stars
+    2300010: Piscesstars
+    2300012: Plane_MeshPart0
+    2300014: Plane_MeshPart1
+    2300016: Starmap_MeshPart0
+    2300018: Starmap_MeshPart1
+    2300020: Starmap_MeshPart2
+    2300022: Plane
+    3300000: Background stars
+    3300002: Cancerstars
+    3300004: Cepheusstars
+    3300006: Lupusstars
+    3300008: Main stars
+    3300010: Piscesstars
+    3300012: Plane_MeshPart0
+    3300014: Plane_MeshPart1
+    3300016: Starmap_MeshPart0
+    3300018: Starmap_MeshPart1
+    3300020: Starmap_MeshPart2
+    3300022: Plane
+    4300000: Cepheus
+    4300002: Plane_MeshPart0
+    4300004: Plane_MeshPart1
+    4300006: Pisces
+    4300008: Lupus
+    4300010: Cancer
+    4300012: Background stars
+    4300014: Cancerstars
+    4300016: Cepheusstars
+    4300018: Lupusstars
+    4300020: Main stars
+    4300022: Piscesstars
+    4300024: Starmap_MeshPart0
+    4300026: Starmap_MeshPart1
+    4300028: Starmap_MeshPart2
+    4300030: Plane
+    7400000: Cepheusbones|Action
+    7400002: Cepheusbones|Action.001
+    7400004: Cepheusbones|Cepheus.001
+    7400006: Piscesbones|Action
+    7400008: Piscesbones|Action.001
+    7400010: Piscesbones|Cancer
+    7400012: Piscesbones|Cepheus.001
+    7400014: Piscesbones|Lupus
+    7400016: Piscesbones|Pisces
+    7400018: Lupusbones|Action
+    7400020: Lupusbones|Action.001
+    7400022: Lupusbones|Cancer
+    7400024: Lupusbones|Cepheus.001
+    7400026: Lupusbones|Lupus
+    7400028: Cancerbones|Action
+    7400030: Cancerbones|Action.001
+    7400032: Cancerbones|Cancer
+    9500000: //RootNode
+    13700000: Cancer
+    13700002: Cepheus
+    13700004: Lupus
+    13700006: Pisces
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
