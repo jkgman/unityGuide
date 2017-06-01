@@ -9,6 +9,8 @@ public class Clickable : MonoBehaviour
     private OrbPositionManager _orbPositionManager;
     private Collider _collider;
 
+    private ParticleSystem _glowParticle;
+
     // Use this for initialization
     void Awake ()
     {
@@ -16,6 +18,9 @@ public class Clickable : MonoBehaviour
         _orbPositionManager = FindObjectOfType<OrbPositionManager>();
         _collider = GetComponent<Collider>();
         _collider.enabled = false;
+
+        _glowParticle = GetComponentInChildren<ParticleSystem>();
+        _glowParticle.Stop();
     }
     
     // Update is called once per frame
@@ -26,6 +31,7 @@ public class Clickable : MonoBehaviour
     public void EnableCollider()
     {
         _collider.enabled = true;
+        _glowParticle.Play();
     }
 
     public void Activate() {
@@ -33,5 +39,6 @@ public class Clickable : MonoBehaviour
 
         _orbPositionManager.GoToNextTarget();
         _collider.enabled = false;
+        _glowParticle.Stop();
     }
 }
