@@ -21,7 +21,7 @@ public class ballBehavior : MonoBehaviour {
 		_renderer = GetComponent<MeshRenderer> ();
 		Hide ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		_timer -= Time.deltaTime;
@@ -59,7 +59,7 @@ public class ballBehavior : MonoBehaviour {
 				}
 
 
-			} 
+			}
 
 			if (distance - dist > 1) {
 				_hasChosenDirection=false;
@@ -68,8 +68,8 @@ public class ballBehavior : MonoBehaviour {
 
 
 			Vector3 viewportPos = Camera.main.WorldToViewportPoint (transform.position);
-			viewportPos.x = Mathf.Clamp (viewportPos.x,0.3f,0.8f);
-			viewportPos.y = Mathf.Clamp (viewportPos.y,0.3f,0.6f);
+			viewportPos.x = Mathf.Clamp (viewportPos.x,0.25f,0.75f);
+			viewportPos.y = Mathf.Clamp (viewportPos.y,0.25f,0.75f);
 			transform.position = Camera.main.ViewportToWorldPoint (viewportPos);
 
 
@@ -80,7 +80,6 @@ public class ballBehavior : MonoBehaviour {
 
 	void Show(){
 		transform.position = _camera.transform.position + _camera.transform.forward * spawnDist;
-		Debug.Log (_camera.transform.forward);
 		_renderer.enabled = true;
 		_isShown = true;
 		MoveTowardsTarget ();
