@@ -73,13 +73,12 @@ public class LaserScript : MonoBehaviour {
 
 				}
 
-				//hitpoint laser is causing the flicker
 				_hitPoint = hits [hits.Length - 1].point;
 				ShowLaser (_hitPoint);
 				//ShowLaser (_trackedObj.transform.position + 100 * transform.forward);
 			} else {
 
-				//ShowLaser (_trackedObj.transform.position + 100 * transform.forward);
+				ShowLaser (_trackedObj.transform.position + 100 * transform.forward);
 			}
 
 		} else {

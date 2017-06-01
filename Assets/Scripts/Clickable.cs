@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Clickable : MonoBehaviour {
+public class Clickable : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private ballBehavior _ballBehavior;
+    private OrbPositionManager _orbPositionManager;
 
-	public void Activate() {
-		Debug.Log ("Activated");
-	}
+
+    // Use this for initialization
+    void Awake ()
+    {
+        _ballBehavior = FindObjectOfType<ballBehavior>();
+        _orbPositionManager = FindObjectOfType<OrbPositionManager>();
+    }
+    
+    // Update is called once per frame
+    void Update () {
+        
+    }
+
+    public void Activate() {
+        Debug.Log ("Activated");
+
+        _orbPositionManager.GoToNextTarget();
+    }
 }
