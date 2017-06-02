@@ -125,7 +125,7 @@ public class ballBehavior : MonoBehaviour {
   void Show(){
     _positionManager.GoToNextTarget();
     transform.position = _camera.transform.position + _camera.transform.forward * spawnDist;
-    _renderer.enabled = true;
+    //_renderer.enabled = true;
     _isShown = true;
     MoveTowardsTarget ();
   }
@@ -167,7 +167,7 @@ public class ballBehavior : MonoBehaviour {
       yield return new WaitForSeconds(5);
       shownew();
 		_particleSystem.Play();
-      _meshRenderer.enabled = true;
+     // _meshRenderer.enabled = true;
 
   }
 }
