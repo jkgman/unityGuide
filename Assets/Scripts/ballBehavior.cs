@@ -5,7 +5,7 @@ using UnityEngine;
 public class ballBehavior : MonoBehaviour {
 	//[SerializeField] SteamVR_TrackedObject _trackedObj1;
 	//[SerializeField] SteamVR_TrackedObject _trackedObj2;
-  private float _timer = 1;
+  private float _timer = 5;
   private MeshRenderer _renderer;
   [SerializeField] float distance;
   [SerializeField] float spawnDist;

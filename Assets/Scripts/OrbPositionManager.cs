@@ -12,6 +12,7 @@ public class OrbPositionManager : MonoBehaviour
 
     private int _currentTargetIndex = 0;
 
+	bool first = true;
     // Use this for initialization
     void Awake ()
     {
@@ -36,7 +37,14 @@ public class OrbPositionManager : MonoBehaviour
 
         Transform result = _buttons[_currentTargetIndex].transform;
 
-        _buttons[_currentTargetIndex].EnableCollider();
+		if (first) {
+			_buttons[_currentTargetIndex].EnableCollider();
+			first = false;
+
+		} else {
+			StartCoroutine (GlowStar (_currentTargetIndex));
+
+		}
 
         int prev = _currentTargetIndex;
         _currentTargetIndex = Random.Range(0, _buttons.Count);
@@ -46,8 +54,20 @@ public class OrbPositionManager : MonoBehaviour
             _currentTargetIndex -= 2;
           }
         }
+
         _ballBehavior.SetNewTarget(result);
 
 
     }
+
+
+	private IEnumerator GlowStar(int index)
+	{
+		
+
+
+		yield return new WaitForSeconds(5);
+
+		_buttons[index].EnableCollider();
+	}
 }
